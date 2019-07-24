@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import {Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption} from 'reactstrap';
-
+import CustomIndicator from './CustomIndicator'
 class Gallery extends Component {
     constructor(props) {
         super(props);
-        this.state = {activeIndex: 0};
+        this.state = {
+            activeIndex: 0
+        };
         this.next = this.next.bind(this);
         this.previous = this.previous.bind(this);
         this.goToIndex = this.goToIndex.bind(this);
         this.onExiting = this.onExiting.bind(this);
         this.onExited = this.onExited.bind(this);
+
     }
 
     onExiting() {
@@ -33,6 +36,7 @@ class Gallery extends Component {
     }
 
     goToIndex(newIndex) {
+        console.log(newIndex);
         if (this.animating) return;
         this.setState({activeIndex: newIndex});
     }
@@ -50,17 +54,29 @@ class Gallery extends Component {
             )
         });
         return (
-            <Carousel
-                activeIndex={this.state.activeIndex}
-                next={this.next}
-                previous={this.previous}
-            >
-                <CarouselIndicators items={this.props.images} activeIndex={this.state.activeIndex}
-                                    onClickHandler={this.goToIndex}/>
-                {imageList}
-                <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous}/>
-                <CarouselControl direction="next" directionText="Next" onClickHandler={this.next}/>
-            </Carousel>
+            <div>
+                <Carousel
+                    interval={false}
+                    nextIcon ={this.state.nextIcon} prevIcon={this.state.prevIcon}
+                    activeIndex={this.state.activeIndex}
+                    next={this.next}
+                    previous={this.previous}
+                >
+                    <CustomIndicator
+                        items={this.props.images}
+                        activeIndex={this.state.activeIndex}
+                        handleClick={this.goToIndex}
+                    />
+                    {imageList}
+
+                    <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous}/>
+                    <CarouselControl direction="next" directionText="Next" onClickHandler={this.next}/>
+
+
+
+                </Carousel>
+            </div>
+
         );
     }
 

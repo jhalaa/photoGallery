@@ -1,0 +1,7 @@
+.custom-indicator-inactive{
+    border: 1px solid white;
+}
+.custom-indicator-active{
+    border: 1px solid black;
+    background: white;
+}

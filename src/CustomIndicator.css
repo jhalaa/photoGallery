@@ -1,7 +1,11 @@
-.custom-indicator-inactive{
-    border: 1px solid white;
-}
+
 .custom-indicator-active{
     border: 1px solid black;
+    background: black;
+    border-radius: 100px;
+}
+
+.custom-indicator {
+    border: 1px solid white;
     background: white;
 }

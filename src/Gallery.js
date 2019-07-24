@@ -48,8 +48,8 @@ class Gallery extends Component {
                     onExiting={this.onExiting}
                     onExited={this.onExited}
                     key={image.url}>
-                    <img src={image.url} alt={image.caption}/>
-                    <CarouselCaption  captionHeader={image.caption}/>
+                    <img height="400px" src={image.url} alt={image.caption}/>
+                    <CarouselCaption captionHeader={image.caption}/>
                 </CarouselItem>
             )
         });
@@ -66,11 +66,10 @@ class Gallery extends Component {
                         activeIndex={this.state.activeIndex}
                         handleClick={this.goToIndex}
                     />
-                    {imageList}
 
+                    {imageList}
                     <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous}/>
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next}/>
-
 
                 </Carousel>
             </div>

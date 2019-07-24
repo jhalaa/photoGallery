@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption} from 'reactstrap';
+import {Carousel, CarouselItem, CarouselControl, CarouselCaption} from 'reactstrap';
 import CustomIndicator from './CustomIndicator'
+
 class Gallery extends Component {
     constructor(props) {
         super(props);
@@ -36,7 +37,6 @@ class Gallery extends Component {
     }
 
     goToIndex(newIndex) {
-        console.log(newIndex);
         if (this.animating) return;
         this.setState({activeIndex: newIndex});
     }
@@ -49,7 +49,7 @@ class Gallery extends Component {
                     onExited={this.onExited}
                     key={image.url}>
                     <img src={image.url} alt={image.caption}/>
-                    <CarouselCaption captionText={image.caption} captionHeader={image.caption}/>
+                    <CarouselCaption  captionHeader={image.caption}/>
                 </CarouselItem>
             )
         });
@@ -57,7 +57,6 @@ class Gallery extends Component {
             <div>
                 <Carousel
                     interval={false}
-                    nextIcon ={this.state.nextIcon} prevIcon={this.state.prevIcon}
                     activeIndex={this.state.activeIndex}
                     next={this.next}
                     previous={this.previous}
@@ -71,7 +70,6 @@ class Gallery extends Component {
 
                     <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous}/>
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next}/>
-
 
 
                 </Carousel>

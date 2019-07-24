@@ -3,3 +3,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This is a simple photoGallery component
 
 
+This project is deployed at https://jhalaa.github.io/photoGallery/
